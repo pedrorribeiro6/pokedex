@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Fundo -->
+  <circle cx="100" cy="100" r="100" fill="#EF5350"/>
+  
+  <!-- Círculo superior vermelho -->
+  <circle cx="100" cy="100" r="85" fill="#EF5350"/>
+  
+  <!-- Círculo superior da Pokedex -->
+  <circle cx="100" cy="75" r="35" fill="#F44336"/>
+  
+  <!-- Círculo branco no meio -->
+  <circle cx="100" cy="85" r="25" fill="white"/>
+  
+  <!-- Círculo preto no centro -->
+  <circle cx="100" cy="85" r="15" fill="#1a1a1a"/>
+  
+  <!-- Brilho -->
+  <circle cx="105" cy="80" r="5" fill="white" opacity="0.6"/>
+  
+  <!-- Parte inferior branca da Pokedex -->
+  <ellipse cx="100" cy="125" rx="40" ry="30" fill="white"/>
+  
+  <!-- Detalhes inferior -->
+  <circle cx="85" cy="125" r="4" fill="#EF5350"/>
+  <circle cx="100" cy="125" r="4" fill="#EF5350"/>
+  <circle cx="115" cy="125" r="4" fill="#EF5350"/>
+</svg>

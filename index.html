@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pokédex em HTML, CSS e JS com Pokémon das 9 gerações." />
+    <title>Pokédex 9 Gerações</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div class="bg-orb bg-orb--one"></div>
+    <div class="bg-orb bg-orb--two"></div>
+
+    <button id="themeToggleButton" class="ghost-button theme-toggle" type="button" aria-pressed="false">
+      <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+      <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+      <span class="theme-toggle__label">Tema escuro</span>
+    </button>
+
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Pokédex interativa do Pedriscos</p>
+          <h1>Todos os Pokémon das 9 gerações em um só lugar.</h1>
+          <p class="lead">
+            Navegue por geração, pesquise por nome e veja os detalhes de cada Pokémon com dados em tempo real da
+            PokéAPI.
+          </p>
+        </div>
+
+        <div class="hero-card">
+          <span class="hero-card__label">Fonte de dados</span>
+          <strong>PokéAPI</strong>
+          <p>Catálogo completo com carregamento sob demanda para manter a navegação rápida.</p>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="Controles da Pokédex">
+        <label class="searchbox">
+          <span>Buscar</span>
+          <input id="searchInput" type="search" placeholder="Ex.: pikachu, charizard, eevee" autocomplete="off" />
+        </label>
+
+        <label class="selectbox">
+          <span>Geração</span>
+          <select id="generationSelect">
+            <option value="all">Todas as gerações</option>
+            <option value="1">Geração 1</option>
+            <option value="2">Geração 2</option>
+            <option value="3">Geração 3</option>
+            <option value="4">Geração 4</option>
+            <option value="5">Geração 5</option>
+            <option value="6">Geração 6</option>
+            <option value="7">Geração 7</option>
+            <option value="8">Geração 8</option>
+            <option value="9">Geração 9</option>
+          </select>
+        </label>
+
+        <label class="selectbox">
+          <span>Tipo 1</span>
+          <select id="typePrimarySelect">
+            <option value="">Todas</option>
+          </select>
+        </label>
+
+        <label class="selectbox">
+          <span>Tipo 2</span>
+          <select id="typeSecondarySelect">
+            <option value="">Todas</option>
+          </select>
+        </label>
+
+        <label class="selectbox">
+          <span>Ordenar</span>
+          <select id="sortSelect">
+            <option value="id">Número</option>
+            <option value="name">Nome</option>
+            <option value="height">Altura</option>
+            <option value="weight">Peso</option>
+          </select>
+        </label>
+
+        <button id="clearFiltersButton" class="ghost-button" type="button">Limpar filtros</button>
+      </section>
+
+      <section class="summary-bar" aria-live="polite">
+        <div>
+          <span>Pokémon exibidos</span>
+          <strong id="resultCount">0</strong>
+        </div>
+        <div>
+          <span>Registros carregados</span>
+          <strong id="loadedCount">0</strong>
+        </div>
+        <div>
+          <span>Status</span>
+          <strong id="statusText">Pronto para carregar</strong>
+        </div>
+      </section>
+
+      <section aria-label="Lista de Pokémon">
+        <div id="pokemonGrid" class="grid"></div>
+        <div id="loadingState" class="state-panel">Carregando Pokédex...</div>
+        <div id="emptyState" class="state-panel is-hidden">Nenhum Pokémon encontrado com esses filtros.</div>
+      </section>
+    </main>
+
+    <div id="modalBackdrop" class="modal-backdrop is-hidden" aria-hidden="true">
+      <article class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button id="closeModalButton" class="modal__close" type="button" aria-label="Fechar detalhes">×</button>
+        <div id="modalBody"></div>
+      </article>
+    </div>
+  </body>
+</html>
